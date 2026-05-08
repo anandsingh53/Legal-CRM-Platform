@@ -1,87 +1,186 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 
 export default function Navbar() {
 
-  const [menuOpen, setMenuOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+
+  const [scrolled, setScrolled] = useState(false);
+
+
+  useEffect(() => {
+
+    const handleScroll = () => {
+
+      if (window.scrollY > 50) {
+
+        setScrolled(true);
+
+      } else {
+
+        setScrolled(false);
+
+      }
+
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => window.removeEventListener("scroll", handleScroll);
+
+  }, []);
+
 
   return (
 
-    <header className="bg-white shadow-md sticky top-0 z-50">
+    <nav
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${
+        scrolled
+          ? "bg-black/70 backdrop-blur-xl border-b border-white/10 shadow-2xl"
+          : "bg-transparent"
+      }`}
+    >
 
-      <nav className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      <div className="max-w-7xl mx-auto px-6 md:px-10">
 
-        {/* LOGO */}
-        <h1 className="text-2xl md:text-4xl font-bold text-slate-900">
+        <div className="flex items-center justify-between h-20">
 
-          Ashish <span className="text-blue-600">Singh</span>
+          {/* LOGO */}
+          <a
+            href="/"
+            className="text-2xl md:text-3xl font-bold text-white tracking-wide"
+          >
 
-        </h1>
+            Ashish
+            <span className="text-blue-500">
 
+              Singh
 
-        {/* DESKTOP MENU */}
-        <div className="hidden md:flex gap-10 text-lg">
+            </span>
 
-          <a href="#about" className="hover:text-blue-600 transition">
-            About
           </a>
 
-          <a href="#practice-areas" className="hover:text-blue-600 transition">
-            Practice Areas
-          </a>
 
-          <a href="#experience" className="hover:text-blue-600 transition">
-            Experience
-          </a>
+          {/* DESKTOP MENU */}
+          <div className="hidden md:flex items-center gap-10">
 
-          <a href="#testimonials" className="hover:text-blue-600 transition">
-            Testimonials
-          </a>
+            <a
+              href="#about"
+              className="text-slate-200 hover:text-blue-400 transition duration-300"
+            >
 
-          <a href="#contact" className="hover:text-blue-600 transition">
-            Contact
-          </a>
+              About
 
-        </div>
+            </a>
 
 
-        {/* MOBILE BUTTON */}
-        <button
-          className="md:hidden"
-          onClick={() => setMenuOpen(!menuOpen)}
-        >
+            <a
+              href="#services"
+              className="text-slate-200 hover:text-blue-400 transition duration-300"
+            >
 
-          {menuOpen ? <X size={32} /> : <Menu size={32} />}
+              Services
 
-        </button>
-
-      </nav>
+            </a>
 
 
-      {/* MOBILE MENU */}
-      {menuOpen && (
+            <a
+              href="#contact"
+              className="text-slate-200 hover:text-blue-400 transition duration-300"
+            >
 
-        <div className="md:hidden bg-white px-6 pb-6 shadow-lg">
+              Contact
 
-          <div className="flex flex-col gap-5 text-lg">
+            </a>
 
-            <a href="#about">About</a>
 
-            <a href="#practice-areas">Practice Areas</a>
+            {/* CTA BUTTON */}
+            <a
+              href="#contact"
+              className="px-6 py-3 rounded-full bg-gradient-to-r from-blue-600 to-indigo-700 text-white font-medium shadow-lg hover:scale-105 transition duration-300"
+            >
 
-            <a href="#experience">Experience</a>
+              Consultation
 
-            <a href="#testimonials">Testimonials</a>
-
-            <a href="#contact">Contact</a>
+            </a>
 
           </div>
 
+
+          {/* MOBILE MENU BUTTON */}
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="md:hidden text-white"
+          >
+
+            {isOpen ? <X size={32} /> : <Menu size={32} />}
+
+          </button>
+
         </div>
 
-      )}
+      </div>
 
-    </header>
+
+      {/* MOBILE MENU */}
+      <div
+        className={`md:hidden absolute top-20 left-0 w-full bg-black/95 backdrop-blur-xl border-t border-white/10 transition-all duration-500 overflow-hidden ${
+          isOpen ? "max-h-screen py-8" : "max-h-0"
+        }`}
+      >
+
+        <div className="flex flex-col items-center gap-8">
+
+          <a
+            href="#about"
+            onClick={() => setIsOpen(false)}
+            className="text-white text-lg hover:text-blue-400 transition duration-300"
+          >
+
+            About
+
+          </a>
+
+
+          <a
+            href="#services"
+            onClick={() => setIsOpen(false)}
+            className="text-white text-lg hover:text-blue-400 transition duration-300"
+          >
+
+            Services
+
+          </a>
+
+
+          <a
+            href="#contact"
+            onClick={() => setIsOpen(false)}
+            className="text-white text-lg hover:text-blue-400 transition duration-300"
+          >
+
+            Contact
+
+          </a>
+
+
+          {/* MOBILE CTA */}
+          <a
+            href="#contact"
+            onClick={() => setIsOpen(false)}
+            className="px-8 py-4 rounded-full bg-gradient-to-r from-blue-600 to-indigo-700 text-white font-medium shadow-lg"
+          >
+
+            Get Consultation
+
+          </a>
+
+        </div>
+
+      </div>
+
+    </nav>
 
   );
+
 }
