@@ -4,17 +4,17 @@ export default function Education() {
 
   const educationData = [
     {
-      degree: "Bachelor of Laws (LLB)",
-      institute: "National Law University",
-      year: "2014 - 2017",
-      desc: "Specialized in Constitutional Law, Criminal Law, and Civil Litigation."
+      degree: "Bachelor of Art (BA)",
+      institute: "University of Allahabad",
+      year: "2010 - 2013",
+      desc:" Developed a strong foundation in political science, public administration, and legal studies, enhancing critical thinking, research, and communication skills essential for legal practice."
     },
 
     {
-      degree: "Master of Laws (LLM)",
-      institute: "Delhi University",
-      year: "2018 - 2020",
-      desc: "Focused on Corporate Law and High Court legal procedures."
+      degree: "Bachelor of Laws (LLB)",
+      institute: "University of Allahabad",
+      year: "2013 - 2016",
+      desc:  "Specialized in Constitutional Law, Criminal Law, Civil Litigation, and High Court legal procedures with practical exposure to legal research and case drafting."
     }
   ];
 
