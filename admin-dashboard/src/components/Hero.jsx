@@ -1,65 +1,190 @@
 import { motion } from "framer-motion";
+import heroBg from "../assets/HighCourt1.jpg";
+
 export default function Hero() {
-    return (
 
-        <section className="bg-gradient-to-r from-blue-950 to-blue-800 text-white py-28 md:py-40 overflow-hidden">
+  return (
 
-            <div className="container mx-auto px-6 text-center">
+    <section className="relative h-screen flex items-center justify-center overflow-hidden">
 
-                {/* Heading */}
-                <motion.h1
+      {/* BACKGROUND IMAGE */}
+      <div
+        className="absolute inset-0 bg-cover bg-center scale-105"
+        style={{
+          backgroundImage: `url(${heroBg})`,
+        }}
+      ></div>
 
-                    initial={{ opacity: 0, y: -50 }}
+      {/* DARK OVERLAY */}
+      <div className="absolute inset-0 bg-black/70 backdrop-blur-[2px]"></div>
 
-                    animate={{ opacity: 1, y: 0 }}
+      {/* OPTIONAL GRADIENT OVERLAY */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/50 to-slate-950"></div>
 
-                    transition={{ duration: 1 }}
-                className="mt-6 text-lg sm:text-xl md:text-2xl font-light opacity-90 max-w-3xl mx-auto leading-relaxed"
-                >
+      {/* CONTENT */}
+      <div className="relative z-10 container mx-auto px-6 text-center">
 
-                    Advocate Ashish Singh
+        {/* SMALL TAG */}
+        <motion.div
 
-                </motion.h1>
+          initial={{ opacity: 0, y: -20 }}
 
+          animate={{ opacity: 1, y: 0 }}
 
-                {/* Subtitle */}
-                <motion.p
+          transition={{ duration: 0.8 }}
 
-                    initial={{ opacity: 0, y: 40 }}
+          className="inline-block px-5 py-2 rounded-full border border-white/20 bg-white/10 backdrop-blur-md text-slate-200 text-sm md:text-base mb-6"
+        >
 
-                    animate={{ opacity: 1, y: 0 }}
+          High Court Legal Expertise
 
-                    transition={{ duration: 1, delay: 0.3 }}
-
-                    className="mt-4 text-xl md:text-2xl font-light opacity-90"
-                >
-
-                    A Trusted High Court Advocate based in India
-
-                </motion.p>
+        </motion.div>
 
 
-                {/* Button */}
-                <motion.a
+        {/* MAIN HEADING */}
+        <motion.h1
 
-                    initial={{ opacity: 0, scale: 0.8 }}
+          initial={{ opacity: 0, y: -50 }}
 
-                    animate={{ opacity: 1, scale: 1 }}
+          animate={{ opacity: 1, y: 0 }}
 
-                    transition={{ duration: 0.8, delay: 0.6 }}
+          transition={{ duration: 1 }}
 
-                    href="#contact"
+          className="text-5xl sm:text-6xl md:text-7xl font-bold text-white leading-tight tracking-wide"
+        >
 
-                    className="mt-8 inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-full shadow-lg transition-transform transform hover:scale-105 duration-300"
-                >
+          Advocate Ashish Singh
 
-                    Get a Consultation
+        </motion.h1>
 
-                </motion.a>
 
-            </div>
+        {/* SUBTITLE */}
+        <motion.p
 
-        </section>
+          initial={{ opacity: 0, y: 40 }}
 
-    );
+          animate={{ opacity: 1, y: 0 }}
+
+          transition={{ duration: 1, delay: 0.3 }}
+
+          className="mt-8 text-lg sm:text-xl md:text-2xl text-slate-300 max-w-4xl mx-auto leading-relaxed"
+        >
+
+          Trusted High Court Advocate Delivering Strategic Legal
+          Representation, Professional Consultation, and Reliable
+          Legal Solutions Across India.
+
+        </motion.p>
+
+
+        {/* BUTTONS */}
+        <motion.div
+
+          initial={{ opacity: 0, scale: 0.8 }}
+
+          animate={{ opacity: 1, scale: 1 }}
+
+          transition={{ duration: 0.8, delay: 0.6 }}
+
+          className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-5"
+        >
+
+          {/* CONSULT BUTTON */}
+          <a
+
+            href="#contact"
+
+            className="px-10 py-4 rounded-full bg-gradient-to-r from-blue-600 to-indigo-700 text-white font-semibold shadow-2xl hover:scale-105 hover:shadow-blue-500/30 transition-all duration-300"
+          >
+
+            Get a Consultation
+
+          </a>
+
+
+          {/* SECOND BUTTON */}
+          <a
+
+            href="#about"
+
+            className="px-10 py-4 rounded-full border border-white/20 bg-white/10 backdrop-blur-md text-white hover:bg-white/20 transition-all duration-300"
+          >
+
+            Learn More
+
+          </a>
+
+        </motion.div>
+
+
+        {/* STATS */}
+        <motion.div
+
+          initial={{ opacity: 0, y: 30 }}
+
+          animate={{ opacity: 1, y: 0 }}
+
+          transition={{ duration: 1, delay: 0.9 }}
+
+          className="mt-16 grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-4xl mx-auto"
+        >
+
+          <div>
+
+            <h2 className="text-3xl md:text-4xl font-bold text-white">
+
+              500+
+
+            </h2>
+
+            <p className="text-slate-300 mt-2">
+
+              Legal Consultations
+
+            </p>
+
+          </div>
+
+
+          <div>
+
+            <h2 className="text-3xl md:text-4xl font-bold text-white">
+
+              10+
+
+            </h2>
+
+            <p className="text-slate-300 mt-2">
+
+              Years Experience
+
+            </p>
+
+          </div>
+
+
+          <div>
+
+            <h2 className="text-3xl md:text-4xl font-bold text-white">
+
+              95%
+
+            </h2>
+
+            <p className="text-slate-300 mt-2">
+
+              Client Satisfaction
+
+            </p>
+
+          </div>
+
+        </motion.div>
+
+      </div>
+
+    </section>
+
+  );
+
 }
