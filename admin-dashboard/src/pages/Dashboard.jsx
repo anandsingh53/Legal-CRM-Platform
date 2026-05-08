@@ -42,16 +42,7 @@ export default function Dashboard() {
 
   };
 
-
- useEffect(() => {
-
-  const token = localStorage.getItem("adminToken");
-
-  if (!token) {
-
-    navigate("/admin");
-
-  }
+useEffect(() => {
 
   fetchContacts();
 
