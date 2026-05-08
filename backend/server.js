@@ -1,5 +1,6 @@
-const nodemailer = require("nodemailer");
 require("dotenv").config();
+const nodemailer = require("nodemailer");
+
 
 const express = require("express");
 const cors = require("cors");
@@ -31,6 +32,20 @@ const transporter = nodemailer.createTransport({
     user: process.env.EMAIL_USER,
 
     pass: process.env.EMAIL_PASS
+
+  }
+
+});
+
+transporter.verify((error, success) => {
+
+  if (error) {
+
+    console.log("SMTP ERROR:", error);
+
+  } else {
+
+    console.log("SMTP Server Ready ");
 
   }
 
