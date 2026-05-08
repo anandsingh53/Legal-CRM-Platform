@@ -16,7 +16,7 @@ export default function Hero() {
       ></div>
 
       {/* DARK OVERLAY */}
-      <div className="absolute inset-0 bg-black/70 backdrop-blur-[2px]"></div>
+      <div className="absolute inset-0 bg-black/70 backdrop-blur-[1px]"></div>
 
       {/* OPTIONAL GRADIENT OVERLAY */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/50 to-slate-950"></div>
