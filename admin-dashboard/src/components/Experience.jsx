@@ -6,14 +6,14 @@ export default function Experience() {
     {
       role: "High Court Advocate",
       company: "Allahabad High Court",
-      year: "2020 - Present",
+      year: "2018 - Present",
       desc: "Handling civil, criminal, and constitutional law matters with professional courtroom representation."
     },
 
     {
       role: "Legal Consultant",
       company: "Private Legal Firm",
-      year: "2018 - 2020",
+      year: "2016 - 2018",
       desc: "Provided strategic legal consultation and corporate law advisory services."
     }
   ];
