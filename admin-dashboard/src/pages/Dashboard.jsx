@@ -43,11 +43,19 @@ export default function Dashboard() {
   };
 
 
-  useEffect(() => {
+ useEffect(() => {
 
-    fetchContacts();
+  const token = localStorage.getItem("adminToken");
 
-  }, []);
+  if (!token) {
+
+    navigate("/admin");
+
+  }
+
+  fetchContacts();
+
+}, []);
 
 
   // DELETE CONTACT
@@ -62,7 +70,7 @@ export default function Dashboard() {
     try {
 
       await axios.delete(
-        'https://legal-crm-platform.onrender.com/api/contact/${id}'
+        `https://legal-crm-platform.onrender.com/api/contact/${id}`
       );
 
       fetchContacts();
