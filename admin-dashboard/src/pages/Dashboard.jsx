@@ -421,7 +421,7 @@ const handleLogout = () => {
                       <div className="flex flex-col md:flex-row gap-2 justify-center">
 
                         {/* REPLY BUTTON */}
-                        <button
+                        {/* <button
 
                           onClick={() => {
 
@@ -438,7 +438,15 @@ const handleLogout = () => {
 
                           Reply
 
-                        </button>
+                        </button> */
+                        
+                        
+                        <button
+                        className="bg-gray-400 text-white px-4 py-2 rounded-lg cursor-not-allowed"
+                                      >
+                            Coming Soon
+                            
+                               </button>}
 
 
                         {/* DELETE BUTTON */}
