@@ -28,9 +28,9 @@ export default function Dashboard() {
 
     try {
 
-      const res = await axios.get(
-        "http://localhost:5000/api/contact/all"
-      );
+     const res = await axios.get(
+  "https://legal-crm-platform.onrender.com/api/contact/all"
+);
 
       setContacts(res.data);
 
@@ -62,7 +62,7 @@ export default function Dashboard() {
     try {
 
       await axios.delete(
-        `http://localhost:5000/api/contact/${id}`
+        'https://legal-crm-platform.onrender.com/api/contact/${id}'
       );
 
       fetchContacts();
@@ -84,7 +84,7 @@ export default function Dashboard() {
       setLoading(true);
 
       await axios.post(
-        "http://localhost:5000/api/reply",
+        "https://legal-crm-platform.onrender.com/api/reply",
         {
           to: selectedEmail,
           subject,
@@ -92,7 +92,7 @@ export default function Dashboard() {
         }
       );
 
-      alert("Reply sent successfully ✅");
+      alert("Reply sent successfully ");
 
       setShowModal(false);
 
