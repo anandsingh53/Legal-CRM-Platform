@@ -1,7 +1,6 @@
 require("dotenv").config();
+
 const nodemailer = require("nodemailer");
-
-
 const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
@@ -18,14 +17,10 @@ mongoose.connect(process.env.MONGO_URI)
   .catch((err) => console.log("DB Error:", err));
 
 
-// 📧 NODEMAILER TRANSPORTER
+// NODEMAILER TRANSPORTER
 const transporter = nodemailer.createTransport({
 
-  host: "smtp.gmail.com",
-
-  port: 587,
-
-  secure: false,
+  service: "gmail",
 
   auth: {
 
@@ -37,6 +32,8 @@ const transporter = nodemailer.createTransport({
 
 });
 
+
+// SMTP VERIFY
 transporter.verify((error, success) => {
 
   if (error) {
@@ -68,15 +65,15 @@ const contactSchema = new mongoose.Schema({
 const Contact = mongoose.model("Contact", contactSchema);
 
 
-// 🧪 TEST ROUTE
+// TEST ROUTE
 app.get("/", (req, res) => {
 
-  res.send("Backend Running ");
+  res.send("Backend Running 🚀");
 
 });
 
 
-//  SAVE CONTACT DATA
+// SAVE CONTACT DATA
 app.post("/api/contact", async (req, res) => {
 
   try {
@@ -129,7 +126,7 @@ app.post("/api/contact", async (req, res) => {
 });
 
 
-// 📥 GET ALL CONTACTS
+// GET ALL CONTACTS
 app.get("/api/contact/all", async (req, res) => {
 
   try {
@@ -157,6 +154,10 @@ app.get("/api/contact/all", async (req, res) => {
 app.post("/api/reply", async (req, res) => {
 
   try {
+
+    console.log("EMAIL USER:", process.env.EMAIL_USER);
+
+    console.log("EMAIL PASS:", process.env.EMAIL_PASS);
 
     const {
       to,
@@ -194,7 +195,7 @@ app.post("/api/reply", async (req, res) => {
 
   } catch (err) {
 
-    console.error(err);
+    console.error("MAIL ERROR:", err);
 
     res.status(500).json({
       error: "Failed to send email "
@@ -229,7 +230,7 @@ app.delete("/api/contact/:id", async (req, res) => {
 });
 
 
-//  START SERVER
+// START SERVER
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
