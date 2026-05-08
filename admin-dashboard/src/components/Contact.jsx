@@ -89,7 +89,7 @@ export default function Contact() {
             </div>
 
             <p className="text-2xl text-slate-700">
-              +91-98765-43210
+              +91-9695444200
             </p>
 
           </div>
@@ -104,7 +104,7 @@ export default function Contact() {
             </div>
 
             <p className="text-2xl text-slate-700 break-all">
-              contact@ashishsinghadvocate.com
+              advocateashishsingh00@gmail.com
             </p>
 
           </div>
