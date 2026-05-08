@@ -5,24 +5,24 @@ export default function Hero() {
 
   return (
 
-    <section className="relative h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden py-24">
 
       {/* BACKGROUND IMAGE */}
       <div
-        className="absolute inset-0 bg-cover bg-center scale-105"
+        className="absolute inset-0 bg-cover bg-center scale-110"
         style={{
           backgroundImage: `url(${heroBg})`,
         }}
       ></div>
 
       {/* DARK OVERLAY */}
-      <div className="absolute inset-0 bg-black/70 backdrop-blur-[1px]"></div>
+      <div className="absolute inset-0 bg-black/50"></div>
 
-      {/* OPTIONAL GRADIENT OVERLAY */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/50 to-slate-950"></div>
+      {/* GRADIENT OVERLAY */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/50 to-slate-950"></div>
 
       {/* CONTENT */}
-      <div className="relative z-10 container mx-auto px-6 text-center">
+      <div className="relative z-10 container mx-auto px-6 md:px-12 text-center">
 
         {/* SMALL TAG */}
         <motion.div
@@ -50,10 +50,10 @@ export default function Hero() {
 
           transition={{ duration: 1 }}
 
-          className="text-5xl sm:text-6xl md:text-7xl font-bold text-white leading-tight tracking-wide"
+          className="text-4xl sm:text-5xl md:text-7xl font-bold text-white leading-tight tracking-wide"
         >
 
-          Advocate Ashish Singh
+          Advocate <br className="sm:hidden" /> Ashish Singh
 
         </motion.h1>
 
@@ -67,7 +67,7 @@ export default function Hero() {
 
           transition={{ duration: 1, delay: 0.3 }}
 
-          className="mt-8 text-lg sm:text-xl md:text-2xl text-slate-300 max-w-4xl mx-auto leading-relaxed"
+          className="mt-6 text-base sm:text-lg md:text-2xl text-slate-300 max-w-2xl mx-auto leading-relaxed px-2"
         >
 
           Trusted High Court Advocate Delivering Strategic Legal
@@ -86,7 +86,7 @@ export default function Hero() {
 
           transition={{ duration: 0.8, delay: 0.6 }}
 
-          className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-5"
+          className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-5"
         >
 
           {/* CONSULT BUTTON */}
@@ -94,7 +94,7 @@ export default function Hero() {
 
             href="#contact"
 
-            className="px-10 py-4 rounded-full bg-gradient-to-r from-blue-600 to-indigo-700 text-white font-semibold shadow-2xl hover:scale-105 hover:shadow-blue-500/30 transition-all duration-300"
+            className="w-full sm:w-auto text-center px-10 py-4 rounded-full bg-gradient-to-r from-blue-600 to-indigo-700 text-white font-semibold shadow-2xl hover:scale-105 hover:shadow-blue-500/30 transition-all duration-300"
           >
 
             Get a Consultation
@@ -107,7 +107,7 @@ export default function Hero() {
 
             href="#about"
 
-            className="px-10 py-4 rounded-full border border-white/20 bg-white/10 backdrop-blur-md text-white hover:bg-white/20 transition-all duration-300"
+            className="w-full sm:w-auto text-center px-10 py-4 rounded-full border border-white/20 bg-white/10 backdrop-blur-md text-white hover:bg-white/20 transition-all duration-300"
           >
 
             Learn More
@@ -126,7 +126,7 @@ export default function Hero() {
 
           transition={{ duration: 1, delay: 0.9 }}
 
-          className="mt-16 grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-4xl mx-auto"
+          className="mt-20 grid grid-cols-1 sm:grid-cols-3 gap-10 max-w-4xl mx-auto"
         >
 
           <div>
