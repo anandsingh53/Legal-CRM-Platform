@@ -16,7 +16,7 @@ export default function Login() {
 
     // SIMPLE ADMIN AUTH
     if (
-      email === "advocateashishsingh00@gmail.com" &&
+      email === "Ashishsngh698@gmail.com" &&
       password === "1234"
     ) {
 
